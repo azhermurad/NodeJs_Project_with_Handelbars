@@ -14,7 +14,7 @@ app.set("views", viewspath)
 // regester partial template to render it 
 const partialPath = path.join(__dirname, "../template/partials");
 hbs.registerPartials(partialPath);
-
+const a = 34;
 app.get('/', (req, res) => {
     axios.get("http://localhost:5000/weather")
         .then(function (response) {
