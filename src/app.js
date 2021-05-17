@@ -3,7 +3,7 @@ const express = require("express");
 const hbs = require("hbs");
 const axios = require("axios");
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 const staticfile = path.join(__dirname, "../public");
 app.use(express.static(staticfile));
@@ -16,7 +16,7 @@ const partialPath = path.join(__dirname, "../template/partials");
 hbs.registerPartials(partialPath);
 const a = 34;
 app.get('/', (req, res) => {
-    axios.get("http://localhost:5000/weather")
+    axios.get("weather")
         .then(function (response) {
             // handle success
             console.log(response.data);
